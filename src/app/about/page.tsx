@@ -26,7 +26,7 @@ export default function About(){
                 </div>
                 <div className="flex flex-row mt-20">
                     <div className="mr-10">
-                        <img className="rounded-full" src={"https://media.licdn.com/dms/image/v2/D4D03AQEGCJ3Vt_nSVg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695775673972?e=1744848000&v=beta&t=tUHV0SklgAw3p3tVqTo1U4zuYYdEjkEz3VvqZXa2Lpo"} 
+                        <img className="rounded-full" src={"https://i.postimg.cc/MHCXmLmy/1538444014174.jpg"} 
                         alt="" 
                         width={240} 
                         height={240}/>

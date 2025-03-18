@@ -22,7 +22,7 @@ export default function Home(){
                     <Link className="bg-cl2 rounded-lg w-32" href={"/about"}>Go Ahead</Link>
                 </div>
                 <div className="w-96 justify-center">
-                    <img src={"https://media.licdn.com/dms/image/v2/D4D03AQEGCJ3Vt_nSVg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1695775673972?e=1744848000&v=beta&t=tUHV0SklgAw3p3tVqTo1U4zuYYdEjkEz3VvqZXa2Lpo"}
+                    <img src={"https://i.postimg.cc/MHCXmLmy/1538444014174.jpg"}
                     alt="" 
                     width={400} 
                     height={400}/>
