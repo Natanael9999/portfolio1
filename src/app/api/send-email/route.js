@@ -4,9 +4,9 @@ import Mailgun from "mailgun.js";
 
 export async function POST(req) {
     try {
-        const { nome, titulo, mensagem } = await req.json();
+        const { nome, email, titulo, mensagem } = await req.json();
 
-        if (!nome || !titulo || !mensagem) {
+        if (!nome || !email || !titulo || !mensagem) {
             return NextResponse.json({ error: "Todos os campos são obrigatórios!" }, { status: 400 });
         }
 
@@ -20,7 +20,7 @@ export async function POST(req) {
             from: `No-Reply <no-reply@${process.env.MAILGUN_DOMAIN}>`,
             to: [process.env.DESTINATARIO],
             subject: titulo,
-            text: `Nome: ${nome}\n\n${mensagem}`,
+            text: `Nome: ${nome}\nEmail: ${email}\n\n${mensagem}`,
         });
 
         return NextResponse.json({ message: "E-mail enviado com sucesso!", response: data }, { status: 200 });

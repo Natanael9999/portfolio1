@@ -6,14 +6,20 @@ import { FaWhatsapp } from "react-icons/fa"
 
 export default function Contact(){
 
-    const [formData, setFormData] = useState({ nome: "", titulo: "", mensagem: "" });
+    const [formData, setFormData] = useState({ nome: "", email: "", titulo: "", mensagem: "" });
 
     const handleChange = (e: any) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e: any) => {
+        const handleSubmit = async (e: any) => {
         e.preventDefault();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            alert("Por favor, insira um e-mail válido.");
+            return;
+        }
 
         const response = await fetch("/api/send-email", {
             method: "POST",
@@ -23,7 +29,7 @@ export default function Contact(){
 
         if (response.ok) {
             alert("E-mail enviado com sucesso!");
-            setFormData({ nome: "", titulo: "", mensagem: "" });
+            setFormData({ nome: "", email: "", titulo: "", mensagem: "" });
         } else {
             alert("Erro ao enviar o e-mail.");
         }
@@ -62,6 +68,16 @@ export default function Contact(){
                         className="bg-cl3 mb-6 border-b-2 border-gray-500 text-white outline-none"
                         placeholder="Your name"
                         value={formData.nome}
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="email"
+                        name="email"
+                        className="bg-cl3 mb-6 border-b-2 border-gray-500 text-white outline-none"
+                        placeholder="Your email"
+                        value={formData.email}
                         onChange={handleChange}
                         required
                     />
